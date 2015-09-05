@@ -23,10 +23,19 @@
     <developer />
   </developers>
   <dependencies>
+    <!--Use this for pure java jeromq-->
+    <!--
     <dependency>
       <groupId>org.zeromq</groupId>
       <artifactId>jeromq</artifactId>
       <version>0.3.5</version>
+    </dependency>
+    -->
+    <!--Use this for jzmq jni wrapper for libzmq -->
+    <dependency>
+      <groupId>org.zeromq</groupId>
+      <artifactId>jzmq</artifactId>
+      <version>3.1.0</version>
     </dependency>
     <dependency>
       <groupId>junit</groupId>
@@ -117,6 +126,17 @@
         <activation>
           <os>
             <family>mac</family>
+          </os>
+        </activation>
+        <properties>
+          <native.library.path>/usr/local/lib</native.library.path>
+        </properties>
+    </profile>
+    <profile>
+      <id>linux</id>
+        <activation>
+          <os>
+            <family>unix</family>
           </os>
         </activation>
         <properties>
